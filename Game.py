@@ -1,6 +1,9 @@
-#import CommunityChest
-#import Chance
 import Deck
+import sys
+
+g_cc_deck = None
+g_ch_deck = None
+
 
 def print_jail_menu():
     print('Play Get Out of Jail Free Card. Choose which card:')
