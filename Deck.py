@@ -1,10 +1,6 @@
 import CommunityChest
 import Chance
 import random
-import sys
-
-g_cc_deck = None
-g_ch_deck = None
 
 class Deck:
     def __init__(self, type='CC', input=None):
