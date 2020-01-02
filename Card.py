@@ -18,9 +18,3 @@ class Card:
         if return_str:
             return my_string
         print(my_string)
-'''
-        if full:
-            print(f'Card: num: {self.num:02}, owner: {self.owner}, text: {self.text}, descr: {self.descr}')
-        else:
-            print(f'Card: num: {self.num:02}, owner: {self.owner}, text: {self.text}')
-            '''
