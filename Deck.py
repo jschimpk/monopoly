@@ -96,15 +96,21 @@ class Deck:
             card.debug_print()
 
     def print_piles(self):
-        print('Draw Pile')
+        print('Draw Pile Cards:')
+        if len(self.draw_pile) == 0:
+            print('None')
         for card in self.draw_pile:
             card.debug_print()
-        print('Discard Pile')
+        print('Discard Pile Cards:')
+        if len(self.discard_pile) == 0:
+            print('None')
         for card in self.discard_pile:
             card.debug_print()
+        print('Player Cards:')
         if self.jail_card.owner == 'Player':
-            print('Player')
             self.jail_card.debug_print()
+        else:
+            print('None')
 
     def print_stats(self):
         print(f'{self.name} cards are distributed as follows:')
@@ -115,12 +121,11 @@ class Deck:
 
 def unit_test():
     for deck_name in ['CC', 'Chance']:
-        print(f'Deck: {deck_name}')
         my_deck = Deck(deck_name)
         print(f'Starting Unit tests for Deck: {my_deck.name}')
         print(f'Printing unshuffled cards:')
-        for card in my_deck.draw_pile:
-            card.debug_print()
+        my_deck.print_stats()
+        my_deck.print_piles()
         # Draw all the cards
         for i in range(len(my_deck.draw_pile)):
             card = my_deck.draw(do_print=False)
@@ -135,28 +140,17 @@ def unit_test():
             card.debug_print()
         else:
             print('Empty draw pile test succeeded.')
+        my_deck.print_stats()
 
         #Shuffle cards
         my_deck.shuffle(pile='All')
         print(f'Shuffle cards and print:')
-        for card in my_deck.draw_pile:
-            card.debug_print()
+        my_deck.print_stats()
+        my_deck.print_piles()
 
-'''
-        card = my_deck.draw()
-        print('Drew card:')
-        card.print()
-        print('CC Deck:')
-        my_deck.print()
-        my_deck.print_stats()
-        my_deck.print_piles()
-        my_deck.shuffle()
-        print('Shuffle CC Deck')
-        print('CC Deck:')
-        my_deck.print()
-        my_deck.print_stats()
-        my_deck.print_piles()
-'''
+        print(f'Unit test for {my_deck.name} complete!!!')
+
+
 
 if __name__ == '__main__':
     unit_test()
