@@ -68,7 +68,7 @@ def shuffle_menu(deck):
 
         if selection == '1':
             pile = 'Both'
-        if selection == '2':
+        elif selection == '2':
             pile = 'All'
         elif selection == '3':
             pile = 'Discard'
@@ -94,7 +94,7 @@ def print_main_menu():
     print('7. Print Stats')
 
 
-def run_main_menu():
+def main_menu():
     global g_cc_deck
     global g_ch_deck
 
@@ -144,7 +144,7 @@ def run_game():
     g_ch_deck.shuffle(pile='Draw')
 
     while 1:
-        run_main_menu()
+        main_menu()
 
 
 if __name__ == '__main__':
